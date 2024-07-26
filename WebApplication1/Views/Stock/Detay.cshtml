@@ -1,0 +1,54 @@
+﻿@model WebApplication1.Models.Stock
+
+<h1>@Model.CompanyName</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Symbol</th>
+            <th>Company</th>
+            <th>Purchases</th>
+            <th>LastDiv</th>
+            <th>Industry</th>
+            <th>Market Cap</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.id</td> 
+            <td>@Model.symbol</td>
+            <td>@Model.CompanyName</td>
+            <td>@Model.Purchase</td>
+            <td>@Model.LastDiv</td>
+            <td>@Model.Industry</td>
+            <td>@Model.MarketCap</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr />
+
+<h1>Comments</h1>
+
+<form asp-action="AddComment" method="post">
+    <input type="hidden" name="StockId" value="@Model.id" 
+    <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="Title" placeholder="Title" required />
+    </div>
+    <div>
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="Content" placeholder="Comment" required></textarea>
+    </div>
+    <button type="submit">Add Comment</button>
+</form>
+
+<hr />
+
+
+    @foreach (var item in Model.Comments)
+    {
+        @Html.Partial("Comments", item) 
+            <hr/>
+    }
+

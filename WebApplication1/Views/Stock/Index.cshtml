@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Stock Page</h1>
+<table>
+	<tr>
+		<th>Id </th>
+		<th>Symbol </th>
+		<th>Company </th>
+		<th>Purchases </th>
+		<th>LastDiv </th>
+		<th>Industry </th>
+		<th>Market Cap </th>
+	</tr>
+	@foreach (var item in Model)
+	{
+			
+			<tr>
+				<td>@item.id</td>
+					<td>
+						<a asp-controller="Stock" asp-action="Detay" asp-route-id="@item.id">
+						@item.symbol</a></td>
+				<td>@item.CompanyName</td>
+					<td>@item.Purchase</td>
+					<td>@item.LastDiv</td>
+					<td>@item.Industry</td>
+					<td>@item.MarketCap</td
+			</tr>
+			
+	}
+</table>
+
+
