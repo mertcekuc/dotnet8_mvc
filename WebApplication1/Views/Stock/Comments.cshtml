@@ -1,11 +1,15 @@
 ﻿@model WebApplication1.Models.Comment
 
 @* For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860 *@
+<div class="card border-info mb-3" style="max-width: 20rem;" margin="auto">
 
-<div>
-    <h4>@Model.Title</h4>
-    <p>ID: &num;@Model.Id</p>
-    <p>Date: @Model.DateTime</p>
-    <p>Content: @Model.Content</p>
+<div class="card-header">
+    <h4>Comment</h4> 
+    <p class="text-primary" text-align="right"> &num;@Model.Id
+    </br>@Model.DateTime</p></div>
+<div class="card-body">
+     <h4 class="card-title">@Model.Title</h4> 
+    <p>@Model.Content</p>
     <a asp-action="DeleteComment" asp-route-id="@Model.Id">Delete Comment</a>
+</div>
 </div>

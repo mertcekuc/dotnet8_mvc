@@ -1,7 +1,7 @@
 ﻿@model WebApplication1.Models.Stock
 
 <h1>@Model.CompanyName</h1>
-<table>
+<table class="table table-hover table-info">
     <thead>
         <tr>
             <th>Id</th>
@@ -34,21 +34,20 @@
     <input type="hidden" name="StockId" value="@Model.id" 
     <div>
         <label for="title">Title</label>
-        <input type="text" id="title" name="Title" placeholder="Title" required />
-    </div>
-    <div>
-        <label for="comment">Comment</label>
-        <textarea id="comment" name="Content" placeholder="Comment" required></textarea>
-    </div>
-    <button type="submit">Add Comment</button>
+        <input type="text" class="form-control" id="title" name="Title" placeholder="Title" required />
+   
+        <label class="form-label mt-4" for="comment">Comment</label>
+        <textarea id="comment" class="form-control" name="Content" placeholder="Comment" required></textarea>
+    
+    <button type="submit" class="btn btn-outline-success">Add Comment</button>
+</div>
 </form>
 
 <hr />
 
-
     @foreach (var item in Model.Comments)
     {
         @Html.Partial("Comments", item) 
-            <hr/>
+            
     }
 
